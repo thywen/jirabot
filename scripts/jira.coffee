@@ -14,7 +14,7 @@
 #   Sven Kroell
 
 prefix = process.env.HUBOT_JIRA_PREFIX
-jira_room_name = jira
+jira_room_name = "jira"
 number_prefix = /^\d+$/
 sg_prefix = /^[sS][gG]-\d+$/
 
