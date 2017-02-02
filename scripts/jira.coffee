@@ -9,7 +9,6 @@ module.exports = (robot) ->
     if story_number.match number_prefix
       msg.send "#{prefix}SG-#{story_number}"
     else if story_number.match sg_prefix
-      msg.send "#{prefix}#{story_number}"
+      msg.send "#{prefix}#{story_number.toUpperCase()}"
     else
       msg.send "Please enter correct story number - either SG-<Number> or just the number"
-      msg.send "You added #{story_number}"
