@@ -6,10 +6,7 @@ jira_room_name = "jira"
 module.exports = (robot) ->
   robot.respond /story (.*)$/i, (msg) ->
     msg.send "the variable is #{prefix}"
-    if prefix = ""
-      msg.send "Please set the HUBOT_JIRA_PREFIX variable"
-
-    else
+    if prefix
       story_number = msg.match[1]
       if story_number.match number_prefix
         msg.send "#{prefix}SG-#{story_number}"
@@ -17,3 +14,5 @@ module.exports = (robot) ->
         msg.send "#{prefix}#{story_number.toUpperCase()}"
       else
         msg.send "Please enter correct story number - either SG-<Number> or just the number"
+    else
+      msg.send "Please set the HUBOT_JIRA_PREFIX variable"
