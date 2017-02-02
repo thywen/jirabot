@@ -22,7 +22,7 @@ number_regex = /^\d+$/
 
 module.exports = (robot) ->
     robot.respond /story (.*)$/i, (msg) ->
-      if prefix and story_prefix and jira_room_name
+      if jira_url and story_prefix and jira_room_name
         story_number = msg.match[1]
         if story_number.match number_regex
             robot.messageRoom jira_room_name, "#{jira_url}#{story_prefix}-#{story_number}"
