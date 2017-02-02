@@ -22,12 +22,12 @@ number_regex = /^\d+$/
 
 module.exports = (robot) ->
     robot.respond /story (.*)$/i, (msg) ->
-      if !prefix or !story_prefix or !jira_room_name
-        msg.send "Please add HUBOT_JIRA_CHANNEL, HUBOT_JIRA_PREFIX and HUBOT_STORY_PREFIX"
-      else
+      if prefix and story_prefix and jira_room_name
         story_number = msg.match[1]
         if story_number.match number_regex
             robot.messageRoom jira_room_name, "#{jira_url}#{story_prefix}-#{story_number}"
             robot.messageRoom jira_room_name, "@channel New story"
         else
           msg.send "Please enter correct story number"
+      else
+        msg.send "Please add HUBOT_JIRA_CHANNEL, HUBOT_JIRA_PREFIX and HUBOT_STORY_PREFIX"
