@@ -2,8 +2,9 @@ url = "http://www.mvg-live.de/MvgLive/MvgLive.jsp#haltestelle=Unterföhring&gehw
 html = ""
 
 module.exports = (robot) ->
-  robot.hear /trains/i, (res) ->
-    robot.http(url)
-    .get() (err, reso, body) ->
-      html = body
-    res.send html
+  robot.respond /trains/i, (msg) ->
+    msg.http(url)
+            # and makes an http get call
+            .get() (error, response, body) ->
+                # passes back the complete reponse
+                msg.send body
