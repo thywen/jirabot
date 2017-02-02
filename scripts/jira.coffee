@@ -6,7 +6,7 @@ jira_room_name = "jira"
 
 module.exports = (robot) ->
   robot.respond /story (.*)$/i, (msg) ->
-    story_number = msg.match[1]
+    story_number = parseInt(msg.match[1])
     if story_number.match number_prefix
       msg.send "Hi"
     else
