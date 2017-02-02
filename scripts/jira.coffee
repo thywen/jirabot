@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot story <number of story> - Adds the link for a new story into the jira
+#   hubot story <number of story> - Adds the link for a new story into the jira channel
 #
 # Author:
 #   Sven Kroell
