@@ -11,3 +11,4 @@ module.exports = (robot) ->
       msg.send "Hi"
     else
       msg.send "Please enter correct story number - either SG-<Number> or just the number"
+      msg.send "You added #{story_number}"
