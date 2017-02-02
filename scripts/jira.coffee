@@ -17,7 +17,7 @@
 
 jira_url = process.env.HUBOT_JIRA_PREFIX
 jira_room_name = process.env.HUBOT_JIRA_CHANNEL
-story_prefix = process.env.HUBOT_STORY_PREFI
+story_prefix = process.env.HUBOT_STORY_PREFIX
 number_regex = /^\d+$/
 
 module.exports = (robot) ->
