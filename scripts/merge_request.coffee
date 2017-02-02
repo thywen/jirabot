@@ -14,7 +14,7 @@
 #   Sven Kroell
 
 prefix = "http://git.maibornwolff.de/pro7sat1/"
-merge_request_prefix = /merge_requests
+merge_request_prefix = "/merge_requests"
 jira_room_name = "mergerequests"
 
 publish_request = (url, robot) ->
