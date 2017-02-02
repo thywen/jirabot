@@ -6,4 +6,4 @@ module.exports = (robot) ->
     robot.http(url)
     .get() (err, reso, body) ->
       html = body
-  res.send html
+    res.send html
