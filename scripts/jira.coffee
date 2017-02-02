@@ -1,6 +1,6 @@
 prefix = "https://jira.simtechnik.de/browse/"
-number_prefix = /^[0-9]/
-sg_prefix = /^SG-[0-9]/
+number_prefix = /^\d+$/
+sg_prefix = /^[sS][gG]-\d+$/
 jira_room_name = "jira"
 
 module.exports = (robot) ->
