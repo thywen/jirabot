@@ -25,18 +25,20 @@ publish_story = (url, robot) ->
   robot.messageRoom jira_room_name, url
   robot.messageRoom jira_room_name, "@channel New story"
 
+prepare_story_link = (robot, msg) ->
+  if story_number.match number_prefix
+    publish_story("#{prefix}SG-#{story_number}", robot)
+  else if story_number.match sg_prefix
+    publish_story("#{prefix}#{story_number}", robot)
+  else
+    msg.send "Please enter correct story number - either SG-<Number> or just the number"
 
 module.exports = (robot) ->
   robot.respond /story (.*)$/i, (msg) ->
     if prefix
       story_number = msg.match[1]
       if jira_room_name
-        if story_number.match number_prefix
-          publish_story("#{prefix}SG-#{story_number}", robot)
-        else if story_number.match sg_prefix
-          publish_story("#{prefix}#{story_number}", robot)
-        else
-          msg.send "Please enter correct story number - either SG-<Number> or just the number"
+        prepare_story_link(robot, msg)
       else
         msg.send "Please set the HUBOT_JIRA_CHANNEL environment variable"
     else
