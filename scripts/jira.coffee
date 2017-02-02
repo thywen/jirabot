@@ -13,8 +13,3 @@ module.exports = (robot) ->
     } else {
       robot.message "Please enter correct story number - either SG-<Number> or just the number"
     }
-
-    send_story: ->
-      robot.messageRoom jira_room_name, prefix + suffix
-    robot.messageRoom 'jira',
-    robot.messageRoom 'jira', 'New Story!'
