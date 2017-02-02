@@ -8,9 +8,9 @@ module.exports = (robot) ->
   robot.respond /story (.*)$/i, (msg) ->
     story_number = msg.match[1]
     if (story_number.match number_prefix) {
-      @suffix = "SG-" + story_number
+      robot.message "Hi"
     } else if (story_number.match sg_prefix) {
-      @suffix = story_number
+      robot.message "ho"
     } else {
       robot.message "Please enter correct story number - either SG-<Number> or just the number"
     }
