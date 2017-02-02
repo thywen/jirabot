@@ -23,7 +23,7 @@ publish_request = (url, robot) ->
 
 
 module.exports = (robot) ->
-  robot.respond /merge (.*) #(.*) $/i, (msg) ->
+  robot.respond /merge (.*) #(.*)$/i, (msg) ->
     if prefix
       project = msg.match[1]
       number = msg.match[2]
