@@ -9,9 +9,11 @@ module.exports = (robot) ->
     if prefix
       story_number = msg.match[1]
       if story_number.match number_prefix
-        msg.send "#{prefix}SG-#{story_number}"
+        msg.messageRoom jira_room_name " #{prefix}SG-#{story_number}"
+        msg.messageRoom jira_room_name "@channel New story"
       else if story_number.match sg_prefix
-        msg.send "#{prefix}#{story_number.toUpperCase()}"
+        msg.messageRoom jira_room_name " #{prefix}SG-#{story_number}"
+        msg.messageRoom jira_room_name "@channel New story"
       else
         msg.send "Please enter correct story number - either SG-<Number> or just the number"
     else
