@@ -25,7 +25,7 @@ publish_story = (url, robot) ->
   robot.messageRoom jira_room_name, url
   robot.messageRoom jira_room_name, "@channel New story"
 
-prepare_story_link = (robot, msg) ->
+prepare_story_link = (robot, msg, story_number) ->
   if story_number.match number_prefix
     publish_story("#{prefix}SG-#{story_number}", robot)
   else if story_number.match sg_prefix
@@ -38,7 +38,7 @@ module.exports = (robot) ->
     if prefix
       story_number = msg.match[1]
       if jira_room_name
-        prepare_story_link(robot, msg)
+        prepare_story_link(robot, msg, story_number)
       else
         msg.send "Please set the HUBOT_JIRA_CHANNEL environment variable"
     else
