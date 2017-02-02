@@ -17,9 +17,8 @@
 
 prefix = process.env.HUBOT_JIRA_PREFIX
 jira_room_name = process.env.HUBOT_JIRA_CHANNEL
-story_prefix = process.env.HUBOT_STORY_PREFIX
-number_prefix = /^\d+$/
-sg_prefix = /^[sS][gG]-\d+$/
+story_prefix = process.env.HUBOT_STORY_PREFI
+number_regex = /^\d+$/
 
 
 publish_story = (url, robot) ->
@@ -27,7 +26,7 @@ publish_story = (url, robot) ->
   robot.messageRoom jira_room_name, "@channel New story"
 
 prepare_story_link = (robot, msg, story_number) ->
-  if story_number.match number_prefix
+  if story_number.match number_regex
     publish_story("#{prefix}#{story_prefix}-#{story_number}", robot)
   else
     msg.send "Please enter correct story number"
