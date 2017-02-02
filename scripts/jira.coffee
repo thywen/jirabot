@@ -8,13 +8,8 @@ module.exports = (robot) ->
     story_number = msg.match[1]
     if (story_number.match number_prefix) {
       suffix = "SG-" + story_number
-      send_story()
     } else if (story_number.match sg_prefix) {
       suffix = story_number
-      send_story()
     } else {
       robot.message "Please enter correct story number - either SG-<Number> or just the number"
     }
-
-    send_story: ->
-      robot.messageRoom jira_room_name, prefix + suffix
