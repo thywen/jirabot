@@ -3,6 +3,7 @@
   "hubot-help",
   "hubot-heroku-keepalive",
   "hubot-google-images",
+  "hubot-plusplus",
   "hubot-redis-brain",
   "hubot-shipit",
   "hubot-thesimpsons"
