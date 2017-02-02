@@ -19,7 +19,7 @@ number_prefix = /^\d+$/
 sg_prefix = /^[sS][gG]-\d+$/
 
 
-publish_story = (url) ->
+publish_story = (url, robot) ->
   robot.messageRoom jira_room_name, url
   robot.messageRoom jira_room_name, "@channel New story"
 
@@ -29,9 +29,9 @@ module.exports = (robot) ->
     if prefix
       story_number = msg.match[1]
       if story_number.match number_prefix
-        publish_story("#{prefix}SG-#{story_number}")
+        publish_story("#{prefix}SG-#{story_number}", robot)
       else if story_number.match sg_prefix
-        publish_story("#{prefix}#{story_number}")
+        publish_story("#{prefix}#{story_number}", robot)
       else
         msg.send "Please enter correct story number - either SG-<Number> or just the number"
     else
