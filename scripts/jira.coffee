@@ -21,7 +21,7 @@ story_prefix = process.env.HUBOT_STORY_PREFIX
 number_regex = /^\d+$/
 
 module.exports = (robot) ->
-    robot.respond /story (.*)$/i, (msg) ->
+    robot.hear /story (.*)$/i, (msg) ->
       if jira_url and story_prefix and jira_room_name
         story_number = msg.match[1]
         if story_number.match number_regex
