@@ -15,13 +15,13 @@
 # Author:
 #   Sven Kroell
 
-jira_url = process.env.HUBOT_JIRA_PREFIX
+jira_url = process.env.HUBOT_JIRA_URL
 jira_room_name = process.env.HUBOT_JIRA_CHANNEL
 story_prefix = process.env.HUBOT_STORY_PREFIX
 number_regex = /^\d+$/
 
 module.exports = (robot) ->
-    robot.hear /story (.*)$/i, (msg) ->
+    robot.hear /^new story (.*)$/i, (msg) ->
       if jira_url and story_prefix and jira_room_name
         story_number = msg.match[1]
         if story_number.match number_regex

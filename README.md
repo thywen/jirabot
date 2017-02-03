@@ -30,6 +30,36 @@ Then you can interact with p7-infobot by typing `p7-infobot help`.
 
 The P7 Bot needs to function the following Variables set in Heroku:
 
-HUBOT_JIRA_PREFIX = The url of the jira instance
-HUBOT_STORY_PREFIX = The prefix for the stories
-HUBOT_JIRA_CHANNEL = The channel where to post the new story
+* HUBOT_JIRA_PREFIX = The URL of the jira instance
+* HUBOT_STORY_PREFIX = The prefix for the stories
+* HUBOT_JIRA_CHANNEL = The channel where to post the new story
+* HUBOT_SLACK_TOKEN = The token of the Slackbot in the Slack channel
+
+
+### Deploy
+
+#### Automatic
+The deployment happens automatically with a push on the github master.
+
+#### Manual
+Just push your changes to heroku with
+
+    git push heroku master
+
+
+### functionality
+
+Karma:
+The bot can handle karma with reason ie p7bot @someone++ for helping a lot or trains-- for being always too late
+
+    <botname> someone++ <reason>
+    <botname> someone-- <reason>
+
+To request the karma list, you can write top and bottom with a number
+
+    <botname> top 10
+    <botname> bottom 10
+
+To announce a new story just write the following and the story will be promoted
+
+    new story 1234
